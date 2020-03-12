@@ -1,0 +1,32 @@
+Codigo;Min;Max;Descricao
+TRA001;1;3;Quantidade de Ciclos para Humano Exposto Bebe
+TRA002;1;3;Quantidade de Ciclos para Humano Exposto Crianca
+TRA003;1;3;Quantidade de Ciclos para Humano Exposto Adolescente
+TRA004;1;3;Quantidade de Ciclos para Humano Exposto Jovem
+TRA005;1;3;Quantidade de Ciclos para Humano Exposto Adulto
+TRA006;1;3;Quantidade de Ciclos para Humano Exposto Idoso
+TRA007;2;4;Quantidade de Ciclos para Humano Infectado Bebe
+TRA008;2;4;Quantidade de Ciclos para Humano Infectado Crianca
+TRA009;2;4;Quantidade de Ciclos para Humano Infectado Adolescente
+TRA010;2;4;Quantidade de Ciclos para Humano Infectado Jovem
+TRA011;2;4;Quantidade de Ciclos para Humano Infectado Adulto
+TRA012;2;4;Quantidade de Ciclos para Humano Infectado Idoso
+TRA013;300;300;Quantidade de Ciclos para Humano Imunizado Bebe
+TRA014;300;300;Quantidade de Ciclos para Humano Imunizado Crianca
+TRA015;300;300;Quantidade de Ciclos para Humano Imunizado Adolescente
+TRA016;300;300;Quantidade de Ciclos para Humano Imunizado Jovem
+TRA017;300;300;Quantidade de Ciclos para Humano Imunizado Adulto
+TRA018;300;300;Quantidade de Ciclos para Humano Imunizado Idoso
+TRA019;50;50;Quantidade de Ciclos para Humano Quarentena Bebe
+TRA020;50;50;Quantidade de Ciclos para Humano Quarentena Crianca
+TRA021;50;50;Quantidade de Ciclos para Humano Quarentena Adolescente
+TRA022;50;50;Quantidade de Ciclos para Humano Quarentena Jovem
+TRA023;50;50;Quantidade de Ciclos para Humano Quarentena Adulto
+TRA024;50;50;Quantidade de Ciclos para Humano Quarentena Idoso
+TRA025;400;450;Quantidade de Ciclos para Humano Recuperado Bebe
+TRA026;400;450;Quantidade de Ciclos para Humano Recuperado Crianca
+TRA027;400;450;Quantidade de Ciclos para Humano Recuperado Adolescente
+TRA028;400;450;Quantidade de Ciclos para Humano Recuperado Jovem
+TRA029;400;450;Quantidade de Ciclos para Humano Recuperado Adulto
+TRA030;400;450;Quantidade de Ciclos para Humano Recuperado Idoso
+TRA031;0.60;0.80;Taxa de Eficacia da Vacina

@@ -1,0 +1,8 @@
+Codigo;Min;Max;Descricao
+CON001;0.30;0.40;Taxa de Infeccao Humano Suscetivel Bebe
+CON002;0.30;0.40;Taxa de Infeccao Humano Suscetivel Crianca
+CON003;0.30;0.40;Taxa de Infeccao Humano Suscetivel Adolescente
+CON004;0.30;0.40;Taxa de Infeccao Humano Suscetivel Jovem
+CON005;0.30;0.40;Taxa de Infeccao Humano Suscetivel Adulto
+CON006;0.30;0.40;Taxa de Infeccao Humano Suscetivel Idoso
+CON007;0.655;0.655;Constante Complemento
