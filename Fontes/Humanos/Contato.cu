@@ -35,10 +35,9 @@ void ContatoHumanos::operator()(int id) {
   int nSus = 0, nInf = 0;
 
   // Conta quantos humanos suscetíveis e infectantes há nesta posição. 
-  for (int idHumano = indHumanos[q]; 
-        idHumano < indHumanos[q + 1]; ++idHumano) {
+  for (int idHumano = indHumanos[q]; idHumano < indHumanos[q + 1]; ++idHumano) {
     l_h = GET_L_H(idHumano); x_h = GET_X_H(idHumano); 
-    y_h = GET_Y_H(idHumano); sd_h = GET_SD_H(idHumano); 
+    y_h = GET_Y_H(idHumano); sd_h = GET_SD_H(idHumano);
 
     if (sd_h == MORTO or l_h != l or x_h != x or y_h != y) continue;
 
@@ -51,8 +50,7 @@ void ContatoHumanos::operator()(int id) {
   // Se há humanos suscetíveis e infectantes nesta posição, pode ocorrer, 
   // probabilisticamente, a infecção dos agentes suscetíveis. 
   if (nSus > 0 and nInf > 0) {
-    for (int idHumano = indHumanos[q]; 
-          idHumano < indHumanos[q + 1]; ++idHumano) {
+    for (int idHumano = indHumanos[q]; idHumano < indHumanos[q + 1]; ++idHumano) {
       l_h = GET_L_H(idHumano); x_h = GET_X_H(idHumano); 
       y_h = GET_Y_H(idHumano); sd_h = GET_SD_H(idHumano); 
       fe_h = GET_FE_H(idHumano);
@@ -60,6 +58,8 @@ void ContatoHumanos::operator()(int id) {
       if (sd_h != SUSCETIVEL or l_h != l or x_h != x or y_h != y) continue;
 
       taxaInfeccao = TAXA_INFECCAO_HUMANO_SUSCETIVEL(fe_h);
+
+      printf("Taxa de infecção : %lf\n", taxaInfeccao);
 
       // Se o agente é infectado ele é passado ao estado exposto. 
       if (randPerc <= (taxaInfeccao * comp[ciclo] * K_COMP)) {

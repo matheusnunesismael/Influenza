@@ -14,6 +14,7 @@
 parametros[DESL_2_CON_H + 0 + fe * 2], \
 parametros[DESL_2_CON_H + 1 + fe * 2], \
 (randPerc)))
+
 #define K_COMP \
 (double)(ENTRE_FAIXA( \
 parametros[DESL_2_CON_H + 12], \
