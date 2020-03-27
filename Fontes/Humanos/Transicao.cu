@@ -9,10 +9,11 @@
 
 TransicaoEstadosHumanos::TransicaoEstadosHumanos(Humanos *humanos, 
                                                  Parametros *parametros, 
-                                                 Seeds *seeds) {
+                                                 Seeds *seeds, ParametrosSim *parametrossim) {
   this->humanos = humanos->PhumanosDev;
   this->parametros = parametros->PparametrosDev;
   this->seeds = seeds->PseedsDev;
+  this->parametrossim = parametrossim;
 }
 
 __host__ __device__
@@ -30,7 +31,12 @@ void TransicaoEstadosHumanos::operator()(int id) {
     // Se o período de exposição do agente terminou, 
     // ele é passado ao estado infectante. 
     case EXPOSTO: {
-      if (c >= PERIODO_EXPOSTO_HUMANO(fe)) {
+      int per_exp = PERIODO_EXPOSTO_HUMANO(fe);
+      if (c >= per_exp) {
+
+        parametrossim->periodoexposto += per_exp
+        parametrossim->numeroinfectados += 1;
+
         SET_SD_H(idHumano, INFECTANTE);
         SET_C_H(idHumano, 0);
       } else {
@@ -38,9 +44,14 @@ void TransicaoEstadosHumanos::operator()(int id) {
       }
     } break;
     // Se o período de infectância do agente terminou, 
-    // ele é passado ao estado recuperado. 
+    // ele é passado ao estado recuperado.
     case INFECTANTE: {
-      if (c >= PERIODO_INFECTADO_HUMANO(fe)) {
+      int per_inf = PERIODO_INFECTADO_HUMANO(fe);
+      if (c >= per_inf) {
+
+        parametrossim->periodoinfectado += per_inf;
+        parametrossim->numeroinfectados += 1;
+
         SET_SD_H(idHumano, RECUPERADO);
         SET_C_H(idHumano, 0);
       } else {
@@ -70,7 +81,12 @@ void TransicaoEstadosHumanos::operator()(int id) {
     // Se o período de recuperação do agente terminou, 
     // ele é passado ao estado suscetível. 
     case RECUPERADO: {
-      if (c >= PERIODO_RECUPERADO_HUMANO(fe)) {
+      int per_rec = PERIODO_RECUPERADO_HUMANO(fe);
+      if (c >= per_rec) {
+
+        parametrossim->periodorecuperado += per_inf;
+        parametrossim->numerosuscetiveis += 1;
+
         SET_SD_H(idHumano, SUSCETIVEL);
         SET_C_H(idHumano, 0);
       } else {

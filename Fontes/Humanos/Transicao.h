@@ -12,6 +12,7 @@ class Parametros;
 class Seeds;
 class Humanos;
 class Humano;
+class ParametrosSim;
 
 /*
   Classe responsável pela transição de estados dos agentes humanos. 
@@ -21,7 +22,7 @@ struct TransicaoEstadosHumanos {
   Humano *humanos; double *parametros; dre *seeds;
 
   TransicaoEstadosHumanos(Humanos *humanos, Parametros *parametros, 
-                          Seeds *seeds);
+                          Seeds *seeds, ParametrosSim *parametrossim);
   __host__ __device__
   void operator()(int id);
 

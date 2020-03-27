@@ -13,6 +13,7 @@ class Seeds;
 class Humanos;
 class Humano;
 class Posicao;
+class ParametrosSim;
 
 /*
   Classe responsável pelo contato entre agentes humanos, em que ocorrem as 
@@ -22,10 +23,10 @@ struct ContatoHumanos {
 
   Humano *humanos; double *parametros;
   int ciclo, *indHumanos; double *comp; Posicao *pos;
-  dre *seeds;
+  dre *seeds; ParametrosSim *parametrossim;
 
   ContatoHumanos(Humanos *humanos, Ambiente *ambiente, 
-                 Parametros *parametros, int ciclo, Seeds *seeds);
+                 Parametros *parametros, int ciclo, Seeds *seeds, ParametrosSim *parametrossim);
   __host__ __device__
   void operator()(int id);
 

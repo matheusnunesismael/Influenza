@@ -15,6 +15,8 @@
 #include "Fontes/Humanos/Insercao.h"
 #include "Fontes/Humanos/Saidas.h"
 
+#include "ParametrosSim.h"
+
 /*
   Construtor da classe Simulacao. 
 
@@ -41,6 +43,8 @@ Simulacao::Simulacao(int idSim, string saidaSim, Saidas *saidas,
   this->ambiente = ambiente;
 
   ciclo = 0;
+
+  parametrossim = new ParametrosSim();
 
   // Criação da pasta de saída da simulação individual. 
   system((CRIAR_PASTA + saidaSim).c_str());
@@ -96,6 +100,8 @@ void Simulacao::iniciar() {
     //quarentena();
 
     computarSaidas();
+    parametrossim.printaResultados();
+
   }
 }
 
@@ -190,7 +196,7 @@ void Simulacao::movimentacaoHumanos() {
 void Simulacao::contatoEntreHumanos() {
   for_each_n(
     seeds->ind1, ambiente->sizePos,
-    ContatoHumanos(humanos, ambiente, parametros, ciclo - 1, seeds)
+    ContatoHumanos(humanos, ambiente, parametros, ciclo - 1, seeds, *parametrossim)
   );
 }
 
@@ -207,7 +213,7 @@ void Simulacao::contatoEntreHumanos() {
 void Simulacao::transicaoEstadosHumanos() {
   for_each_n(
     seeds->ind1, humanos->nHumanos,
-    TransicaoEstadosHumanos(humanos, parametros, seeds)
+    TransicaoEstadosHumanos(humanos, parametros, seeds, *parametrossim)
   );
 }
 

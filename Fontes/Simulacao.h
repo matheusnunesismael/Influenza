@@ -6,6 +6,7 @@ class Parametros;
 class Ambiente;
 class Saidas;
 class Humanos;
+class ParametrosSim;
 
 #include <thrust/count.h>
 #include <thrust/for_each.h>
@@ -32,13 +33,14 @@ class Simulacao {
 
   int idSim, ciclo; string saidaSim; Seeds *seeds;
   Parametros *parametros; Ambiente *ambiente; Saidas *saidas;
-  Humanos *humanos; 
+  Humanos *humanos;
   
   public:
 
   Simulacao(int idSim, string saidaSim, Saidas *saidas, Parametros *parametros, 
             Ambiente *ambiente);
   ~Simulacao();
+  ParametrosSim parametrossim;
 
   private:
   

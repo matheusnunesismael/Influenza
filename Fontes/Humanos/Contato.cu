@@ -7,10 +7,11 @@
 #include "Fontes/Macros/0_INI_H.h"
 #include "Fontes/Macros/2_CON_H.h"
 #include "Fontes/Macros/MacrosGerais.h"
+#include "../ParametrosSim.h"
 
 ContatoHumanos::ContatoHumanos(Humanos *humanos, Ambiente *ambiente, 
                                Parametros *parametros, int ciclo, 
-                               Seeds *seeds) {
+                               Seeds *seeds, ParametrosSim *parametrossim) {
   this->humanos = humanos->PhumanosDev;
   this->indHumanos = humanos->PindHumanosDev;
   this->parametros = parametros->PparametrosDev;
@@ -18,6 +19,7 @@ ContatoHumanos::ContatoHumanos(Humanos *humanos, Ambiente *ambiente,
   this->comp = ambiente->PcompDev;
   this->ciclo = ciclo;
   this->seeds = seeds->PseedsDev;
+  this->parametrossim = parametrossim;
 }
 
 __host__ __device__
@@ -58,8 +60,8 @@ void ContatoHumanos::operator()(int id) {
       if (sd_h != SUSCETIVEL or l_h != l or x_h != x or y_h != y) continue;
 
       taxaInfeccao = TAXA_INFECCAO_HUMANO_SUSCETIVEL(fe_h);
-
-      printf("Taxa de infecção : %lf\n", taxaInfeccao);
+      parametrossim->taxadeinfeccao += taxaInfeccao;
+      parametrossim->numeroexpostos += 1;
 
       // Se o agente é infectado ele é passado ao estado exposto. 
       if (randPerc <= (taxaInfeccao * comp[ciclo] * K_COMP)) {
