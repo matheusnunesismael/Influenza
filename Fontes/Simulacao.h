@@ -12,6 +12,7 @@ class ParametrosSim;
 #include <thrust/for_each.h>
 #include <thrust/functional.h>
 #include <thrust/partition.h>
+#include "ParametrosSim.h"
 
 using std::cerr;
 using std::cout;
@@ -40,7 +41,7 @@ class Simulacao {
   Simulacao(int idSim, string saidaSim, Saidas *saidas, Parametros *parametros, 
             Ambiente *ambiente);
   ~Simulacao();
-  ParametrosSim parametrossim;
+  ParametrosSim *parametrossim;
 
   private:
   

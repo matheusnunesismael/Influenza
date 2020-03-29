@@ -19,7 +19,7 @@ class ParametrosSim;
 */
 struct TransicaoEstadosHumanos {
 
-  Humano *humanos; double *parametros; dre *seeds;
+  Humano *humanos; double *parametros; dre *seeds; ParametrosSim *parametrossim;
 
   TransicaoEstadosHumanos(Humanos *humanos, Parametros *parametros, 
                           Seeds *seeds, ParametrosSim *parametrossim);

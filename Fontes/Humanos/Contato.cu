@@ -60,8 +60,8 @@ void ContatoHumanos::operator()(int id) {
       if (sd_h != SUSCETIVEL or l_h != l or x_h != x or y_h != y) continue;
 
       taxaInfeccao = TAXA_INFECCAO_HUMANO_SUSCETIVEL(fe_h);
-      parametrossim->taxadeinfeccao += taxaInfeccao;
-      parametrossim->numeroexpostos += 1;
+      //parametrossim->taxadeinfeccao += taxaInfeccao;
+      //parametrossim->numeroexpostos += 1;
 
       // Se o agente é infectado ele é passado ao estado exposto. 
       if (randPerc <= (taxaInfeccao * comp[ciclo] * K_COMP)) {

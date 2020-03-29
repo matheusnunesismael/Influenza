@@ -100,7 +100,7 @@ void Simulacao::iniciar() {
     //quarentena();
 
     computarSaidas();
-    parametrossim.printaResultados();
+    parametrossim->printaResultados();
 
   }
 }
@@ -196,7 +196,7 @@ void Simulacao::movimentacaoHumanos() {
 void Simulacao::contatoEntreHumanos() {
   for_each_n(
     seeds->ind1, ambiente->sizePos,
-    ContatoHumanos(humanos, ambiente, parametros, ciclo - 1, seeds, *parametrossim)
+    ContatoHumanos(humanos, ambiente, parametros, ciclo - 1, seeds, parametrossim)
   );
 }
 
@@ -213,7 +213,7 @@ void Simulacao::contatoEntreHumanos() {
 void Simulacao::transicaoEstadosHumanos() {
   for_each_n(
     seeds->ind1, humanos->nHumanos,
-    TransicaoEstadosHumanos(humanos, parametros, seeds, *parametrossim)
+    TransicaoEstadosHumanos(humanos, parametros, seeds, parametrossim)
   );
 }
 

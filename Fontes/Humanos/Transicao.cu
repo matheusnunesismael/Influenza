@@ -6,6 +6,7 @@
 #include "Fontes/Macros/MacrosHumanos.h"
 #include "Fontes/Macros/3_TRA_H.h"
 #include "Fontes/Macros/MacrosGerais.h"
+#include "../ParametrosSim.h"
 
 TransicaoEstadosHumanos::TransicaoEstadosHumanos(Humanos *humanos, 
                                                  Parametros *parametros, 
@@ -34,8 +35,8 @@ void TransicaoEstadosHumanos::operator()(int id) {
       int per_exp = PERIODO_EXPOSTO_HUMANO(fe);
       if (c >= per_exp) {
 
-        parametrossim->periodoexposto += per_exp
-        parametrossim->numeroinfectados += 1;
+        //parametrossim->periodoexposto += per_exp;
+        //parametrossim->numeroinfectados += 1;
 
         SET_SD_H(idHumano, INFECTANTE);
         SET_C_H(idHumano, 0);
@@ -49,8 +50,8 @@ void TransicaoEstadosHumanos::operator()(int id) {
       int per_inf = PERIODO_INFECTADO_HUMANO(fe);
       if (c >= per_inf) {
 
-        parametrossim->periodoinfectado += per_inf;
-        parametrossim->numeroinfectados += 1;
+        //parametrossim->periodoinfectado += per_inf;
+        //parametrossim->numeroinfectados += 1;
 
         SET_SD_H(idHumano, RECUPERADO);
         SET_C_H(idHumano, 0);
@@ -84,8 +85,8 @@ void TransicaoEstadosHumanos::operator()(int id) {
       int per_rec = PERIODO_RECUPERADO_HUMANO(fe);
       if (c >= per_rec) {
 
-        parametrossim->periodorecuperado += per_inf;
-        parametrossim->numerosuscetiveis += 1;
+        //parametrossim->periodorecuperado += per_rec;
+        //parametrossim->numerosuscetiveis += 1;
 
         SET_SD_H(idHumano, SUSCETIVEL);
         SET_C_H(idHumano, 0);
